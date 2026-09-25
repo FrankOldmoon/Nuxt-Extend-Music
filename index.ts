@@ -90,7 +90,16 @@ export default defineNuxtModule({
       for (let i = pages.length - 1; i >= 0; i--) {
         if (pages[i]?.path === '/') pages.splice(i, 1)
       }
-      pages.unshift({ name: 'music-home', path: '/', file: home })
+      pages.unshift({
+        name: 'music-home',
+        path: '/',
+        file: home,
+        // The layout has to be stated here as well as in the page's own
+        // `definePageMeta`: a page injected through this hook is not built from
+        // the scanned file's meta, so without it the home page silently falls
+        // back to the host's default layout (and loses the music shell).
+        meta: { layout: 'music' }
+      })
     })
   }
 })

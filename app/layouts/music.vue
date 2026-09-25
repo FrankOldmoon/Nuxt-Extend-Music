@@ -43,7 +43,7 @@ function onUploaded(): void {
         padding keeps the fixed transport bar from covering the last row.
       -->
       <div
-        class="mx-auto w-full max-w-[1600px] px-4 py-8 sm:px-6 lg:px-8"
+        class="mx-auto w-full max-w-[1600px] px-5 py-8 sm:px-8 lg:px-12"
         :class="current ? 'pb-32' : 'pb-12'"
       >
         <slot />

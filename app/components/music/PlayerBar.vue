@@ -66,8 +66,13 @@ function onScrubCommit(): void {
 <template>
   <div class="border-t border-default bg-default/95 backdrop-blur">
     <div class="mx-auto flex max-w-[1600px] flex-wrap items-center gap-3 px-3 py-2 sm:px-4">
-      <!-- Now playing -->
-      <div class="flex min-w-0 flex-1 items-center gap-3 sm:flex-none sm:basis-64">
+      <!-- Now playing: links to the full page, except for converted one-offs
+           (negative ids), which the API has nothing stored for. -->
+      <component
+        :is="current && current.id > 0 ? 'NuxtLink' : 'div'"
+        :to="current && current.id > 0 ? `/music/track/${current.id}` : undefined"
+        class="flex min-w-0 flex-1 items-center gap-3 rounded-md transition-colors hover:bg-elevated sm:flex-none sm:basis-64"
+      >
         <MusicCoverArt
           :src="current?.coverUrl"
           :name="current?.albumName"
@@ -84,15 +89,15 @@ function onScrubCommit(): void {
             {{ current?.artistName ?? '' }}
           </p>
         </div>
-        <UButton
-          v-if="failed"
-          icon="i-lucide-triangle-alert"
-          color="warning"
-          variant="ghost"
-          size="xs"
-          :title="t('music.player.playbackFailed')"
-        />
-      </div>
+      </component>
+      <UButton
+        v-if="failed"
+        icon="i-lucide-triangle-alert"
+        color="warning"
+        variant="ghost"
+        size="xs"
+        :title="t('music.player.playbackFailed')"
+      />
 
       <!-- Transport -->
       <div class="order-last flex w-full flex-col items-center gap-1 sm:order-none sm:w-auto sm:flex-1">

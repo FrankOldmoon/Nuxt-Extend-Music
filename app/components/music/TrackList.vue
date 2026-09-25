@@ -100,6 +100,13 @@ async function removeFromPlaylist(track: MusicTrack): Promise<void> {
 
 function menuItems(track: MusicTrack): Array<Record<string, unknown>> {
   const items: Array<Record<string, unknown>> = [
+    {
+      label: t('music.actions.trackPage'),
+      icon: 'i-lucide-disc-3',
+      onSelect: () => {
+        void navigateTo(`/music/track/${track.id}`)
+      }
+    },
     { label: t('music.actions.playNext'), icon: 'i-lucide-list-start', onSelect: () => playNext(track) },
     { label: t('music.actions.addToQueue'), icon: 'i-lucide-list-plus', onSelect: () => enqueue(track) },
     {
