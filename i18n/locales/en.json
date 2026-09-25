@@ -1,0 +1,196 @@
+{
+  "music": {
+    "title": "Music",
+    "nav": {
+      "home": "Music home",
+      "tracks": "All tracks",
+      "albums": "Albums",
+      "artists": "Artists",
+      "genres": "Genres",
+      "playlists": "Playlists",
+      "favorites": "My favourites",
+      "search": "Search",
+      "manage": "Upload & manage"
+    },
+    "home": {
+      "recentlyAdded": "Recently added",
+      "recentlyPlayed": "Recently played",
+      "mostPlayed": "Most played",
+      "randomAlbums": "Shuffle albums",
+      "recentAlbums": "New albums",
+      "playlists": "Playlists",
+      "lead": "A private music library: upload, browse, play and star. Browsing and public tracks work without signing in."
+    },
+    "stats": {
+      "tracks": "tracks",
+      "albums": "albums",
+      "artists": "artists",
+      "genres": "genres",
+      "duration": "total runtime"
+    },
+    "player": {
+      "nowPlaying": "Now playing",
+      "queue": "Queue",
+      "emptyQueue": "The queue is empty.",
+      "clearQueue": "Clear queue",
+      "shuffle": "Shuffle",
+      "repeat": "Repeat",
+      "repeatOff": "Repeat off",
+      "repeatAll": "Repeat all",
+      "repeatOne": "Repeat one",
+      "volume": "Volume",
+      "mute": "Mute",
+      "unmute": "Unmute",
+      "prev": "Previous",
+      "next": "Next",
+      "play": "Play",
+      "pause": "Pause",
+      "lyrics": "Lyrics",
+      "noLyrics": "No lyrics for this track.",
+      "unsupported": "Your browser cannot play this format — convert it first.",
+      "playbackFailed": "This track will not play; the file may be missing."
+    },
+    "actions": {
+      "upload": "Upload music",
+      "edit": "Edit",
+      "save": "Save",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "close": "Close",
+      "play": "Play",
+      "playNext": "Play next",
+      "addToQueue": "Add to queue",
+      "addToPlaylist": "Add to playlist",
+      "newPlaylist": "New playlist",
+      "star": "Star",
+      "unstar": "Unstar",
+      "download": "Download",
+      "convert": "Convert format",
+      "rescan": "Re-read tags",
+      "selectAll": "Select all",
+      "selected": "{count} selected",
+      "batchDelete": "Delete selected",
+      "remove": "Remove",
+      "back": "Back"
+    },
+    "track": {
+      "title": "Title",
+      "artist": "Artist",
+      "album": "Album",
+      "albumArtist": "Album artist",
+      "genre": "Genre",
+      "year": "Year",
+      "trackNo": "Track",
+      "discNo": "Disc",
+      "duration": "Duration",
+      "format": "Format",
+      "size": "Size",
+      "bitrate": "Bitrate",
+      "plays": "Plays",
+      "addedAt": "Added",
+      "unknownArtist": "Unknown artist",
+      "unknownAlbum": "Unknown album"
+    },
+    "upload": {
+      "title": "Upload music",
+      "hint": "MP3 / FLAC / M4A / AAC / OGG / Opus. Pick several files at once.",
+      "drop": "Drop audio files here",
+      "choose": "Choose files",
+      "uploading": "Uploading…",
+      "imported": "{count} imported",
+      "duplicates": "{count} already in the library, skipped",
+      "failed": "{count} files failed",
+      "isPublic": "Public (playable without signing in)",
+      "categoryHint": "Title, artist and album are read from the file's own tags."
+    },
+    "edit": {
+      "title": "Edit track details",
+      "lyrics": "Lyrics",
+      "lyricsHint": "Leave empty to fall back to the embedded lyrics or a .lrc file.",
+      "isPublic": "Public"
+    },
+    "messages": {
+      "saved": "Saved",
+      "deleted": "Deleted",
+      "loadFailed": "Failed to load",
+      "saveFailed": "Failed to save",
+      "deleteFailed": "Failed to delete",
+      "uploadFailed": "Upload failed",
+      "notFound": "Not found",
+      "confirmDelete": "Delete this?",
+      "addedToPlaylist": "Added to the playlist",
+      "notSignedIn": "Please sign in first"
+    },
+    "transcode": {
+      "title": "Convert format",
+      "description": "Conversion runs in your browser with ffmpeg.wasm — nothing is uploaded and the server does no work.",
+      "format": {
+        "mp3_320": "MP3 320 kbps",
+        "mp3_192": "MP3 192 kbps",
+        "mp3_128": "MP3 128 kbps",
+        "m4a_192": "M4A (AAC) 192 kbps",
+        "opus_128": "Opus 128 kbps",
+        "wav": "WAV (lossless)"
+      },
+      "start": "Start conversion",
+      "converting": "Converting {percent}%",
+      "loading": "Loading the converter (about 30 MB on first use)…",
+      "done": "Conversion finished",
+      "download": "Download the result",
+      "playResult": "Open in the player",
+      "failed": "Conversion failed: {reason}",
+      "unavailable": "The converter could not be loaded — check the network or the CDN setting (music.ffmpegBase).",
+      "note": "Very large files may run out of memory; how long it takes depends on the length and your device."
+    },
+    "browse": {
+      "sortByName": "By name",
+      "sortByTracks": "By track count",
+      "sortByPlays": "By plays",
+      "sortByRecent": "By date"
+    },
+    "search": {
+      "placeholder": "Search tracks, albums, artists…",
+      "results": "Results",
+      "tracks": "Tracks",
+      "albums": "Albums",
+      "artists": "Artists",
+      "empty": "Type something to search."
+    },
+    "playlists": {
+      "title": "Playlists",
+      "new": "New playlist",
+      "name": "Name",
+      "namePlaceholder": "e.g. Night commute",
+      "description": "Description",
+      "isPublic": "Public playlist",
+      "mine": "Mine",
+      "shared": "Shared",
+      "trackCount": "{count} tracks",
+      "empty": "No playlists yet.",
+      "create": "Create",
+      "addTracks": "Add tracks",
+      "removeFromPlaylist": "Remove from playlist",
+      "noTracks": "This playlist is empty."
+    },
+    "favorites": {
+      "title": "My favourites",
+      "tracks": "Tracks",
+      "albums": "Albums",
+      "artists": "Artists",
+      "empty": "Nothing starred yet. Use the star on the right of a track.",
+      "signInHint": "Sign in to star tracks, albums and artists."
+    },
+    "visibility": {
+      "public": "Public",
+      "private": "Private"
+    },
+    "empty": {
+      "noTracks": "No tracks yet.",
+      "noAlbums": "No albums yet.",
+      "noArtists": "No artists yet.",
+      "noGenres": "No genres yet.",
+      "noResults": "Nothing found.",
+      "libraryHint": "Upload the first track, or have an admin import a batch."
+    }
+  }
+}

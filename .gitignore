@@ -1,0 +1,6 @@
+# 模块自身不产生构建产物（零依赖），这里只是防止本地误提交
+node_modules/
+.nuxt/
+.output/
+dist/
+*.log
