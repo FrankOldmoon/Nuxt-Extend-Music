@@ -3,6 +3,7 @@
     "title": "音樂",
     "nav": {
       "home": "音樂首頁",
+      "homeShort": "首頁",
       "tracks": "全部歌曲",
       "albums": "專輯",
       "artists": "演出者",
@@ -19,6 +20,7 @@
       "randomAlbums": "隨機聽聽",
       "recentAlbums": "新入庫專輯",
       "playlists": "歌單",
+      "viewAll": "查看全部",
       "lead": "私人音樂庫：上傳、瀏覽、播放、收藏。未登入也能瀏覽與播放公開歌曲。"
     },
     "stats": {

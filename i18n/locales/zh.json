@@ -3,6 +3,7 @@
     "title": "音乐",
     "nav": {
       "home": "音乐首页",
+      "homeShort": "首页",
       "tracks": "全部歌曲",
       "albums": "专辑",
       "artists": "艺术家",
@@ -19,6 +20,7 @@
       "randomAlbums": "随便听听",
       "recentAlbums": "新入库专辑",
       "playlists": "歌单",
+      "viewAll": "查看全部",
       "lead": "私人音乐库：上传、浏览、播放、收藏。未登录也可以浏览和播放公开歌曲。"
     },
     "stats": {

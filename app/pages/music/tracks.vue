@@ -9,7 +9,9 @@
 definePageMeta({ layout: 'music' })
 
 const { t } = useI18n()
+const { isLoggedIn } = useAuth()
 const { playQueue } = useMusicPlayer()
+const { openUpload } = useMusicUpload()
 
 const term = ref('')
 const debounced = ref('')
@@ -67,6 +69,13 @@ const totalPages = computed(() => {
         :items="sortItems"
         size="sm"
         class="w-36"
+      />
+      <UButton
+        v-if="isLoggedIn"
+        icon="i-lucide-upload"
+        :label="t('music.actions.upload')"
+        size="sm"
+        @click="openUpload"
       />
       <UButton
         icon="i-lucide-play"

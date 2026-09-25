@@ -1,33 +1,21 @@
 <script setup lang="ts">
 /**
- * The music shell: section nav, page slot, and the transport bar pinned to the
- * bottom with its queue/lyrics panels above it.
+ * The music shell.
+ *
+ * The site chrome is the host's own (`AppHeader`), which is what puts the music
+ * sections in the header navigation: they are published to `site.navigation` by
+ * this module's Nitro plugin, and the header renders that config — so there is
+ * one navigation, editable in the dashboard, instead of a second row owned by
+ * this layout. The only thing added here is the transport bar pinned to the
+ * bottom, with its queue and lyric panels above it.
  *
  * A layout (rather than a component each page imports) is what lets the player
  * keep running while pages come and go.
  */
-const { t } = useI18n()
-const route = useRoute()
-const { isLoggedIn } = useAuth()
 const { current, queue } = useMusicPlayer()
+const { open: uploadOpen, closeUpload } = useMusicUpload()
 
 const panel = ref<'none' | 'queue' | 'lyrics'>('none')
-const uploadOpen = ref(false)
-
-const navItems = computed(() => [
-  { to: '/music', label: t('music.nav.home'), icon: 'i-lucide-house' },
-  { to: '/music/tracks', label: t('music.nav.tracks'), icon: 'i-lucide-music' },
-  { to: '/music/albums', label: t('music.nav.albums'), icon: 'i-lucide-disc-3' },
-  { to: '/music/artists', label: t('music.nav.artists'), icon: 'i-lucide-user-round' },
-  { to: '/music/genres', label: t('music.nav.genres'), icon: 'i-lucide-tags' },
-  { to: '/music/playlists', label: t('music.nav.playlists'), icon: 'i-lucide-list-music' },
-  { to: '/music/favorites', label: t('music.nav.favorites'), icon: 'i-lucide-star' },
-  { to: '/music/search', label: t('music.nav.search'), icon: 'i-lucide-search' }
-])
-
-function isActive(to: string): boolean {
-  return to === '/music' ? route.path === '/music' || route.path === '/' : route.path.startsWith(to)
-}
 
 function togglePanel(value: 'queue' | 'lyrics'): void {
   panel.value = panel.value === value ? 'none' : value
@@ -46,57 +34,21 @@ function onUploaded(): void {
 
 <template>
   <div class="flex min-h-screen flex-col bg-default">
-    <header class="sticky top-0 z-30 border-b border-default bg-default/95 backdrop-blur">
-      <div class="mx-auto flex max-w-[1600px] items-center gap-3 px-3 py-2 sm:px-4">
-        <NuxtLink
-          to="/music"
-          class="flex shrink-0 items-center gap-2 font-semibold"
-        >
-          <UIcon
-            name="i-lucide-audio-lines"
-            class="size-5 text-primary"
-          />
-          <span class="hidden sm:inline">{{ t('music.title') }}</span>
-        </NuxtLink>
+    <AppHeader />
 
-        <nav class="flex min-w-0 flex-1 items-center gap-1 overflow-x-auto">
-          <UButton
-            v-for="item in navItems"
-            :key="item.to"
-            :to="item.to"
-            :label="item.label"
-            :icon="item.icon"
-            :color="isActive(item.to) ? 'primary' : 'neutral'"
-            :variant="isActive(item.to) ? 'soft' : 'ghost'"
-            size="sm"
-            class="shrink-0"
-          />
-        </nav>
-
-        <UButton
-          v-if="isLoggedIn"
-          icon="i-lucide-upload"
-          :label="t('music.actions.upload')"
-          size="sm"
-          class="shrink-0"
-          @click="uploadOpen = true"
-        />
-        <UButton
-          v-else
-          to="/login"
-          icon="i-lucide-log-in"
-          :label="t('music.messages.notSignedIn')"
-          color="neutral"
-          variant="subtle"
-          size="sm"
-          class="shrink-0"
-        />
+    <UMain>
+      <!--
+        Generous, responsive gutters: the catalogue is dense (cover grids, long
+        track lists) and flush edges made it feel cramped. The extra bottom
+        padding keeps the fixed transport bar from covering the last row.
+      -->
+      <div
+        class="mx-auto w-full max-w-[1600px] px-4 py-8 sm:px-6 lg:px-8"
+        :class="current ? 'pb-32' : 'pb-12'"
+      >
+        <slot />
       </div>
-    </header>
-
-    <main class="mx-auto w-full max-w-[1600px] flex-1 px-3 py-4 sm:px-4">
-      <slot />
-    </main>
+    </UMain>
 
     <div class="sticky bottom-0 z-20">
       <MusicQueuePanel
@@ -113,7 +65,7 @@ function onUploaded(): void {
 
     <MusicUploadDialog
       v-if="uploadOpen"
-      @close="uploadOpen = false"
+      @close="closeUpload"
       @uploaded="onUploaded"
     />
   </div>

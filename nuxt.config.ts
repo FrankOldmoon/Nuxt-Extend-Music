@@ -16,7 +16,15 @@ export default defineNuxtConfig({
        * this can point at a self-hosted copy for offline or intranet installs
        * (override with `NUXT_PUBLIC_MUSIC_FFMPEG_BASE`).
        */
-      musicFfmpegBase: 'https://unpkg.com'
+      musicFfmpegBase: 'https://unpkg.com',
+      /**
+       * Filled in by `index.ts` at build time: the header-navigation labels read
+       * from this module's locale files, plus the site's default locale to pick
+       * them with. The host renders those labels verbatim, so they have to be
+       * plain text chosen up front.
+       */
+      musicNavLocale: 'en',
+      musicNavLabels: {} as Record<string, Record<string, string>>
     }
   },
   i18n: {

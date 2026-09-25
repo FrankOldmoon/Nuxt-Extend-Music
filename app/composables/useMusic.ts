@@ -119,9 +119,10 @@ export function formatDuration(seconds: number | null | undefined): string {
   return hours > 0 ? `${hours}:${pad(minutes)}:${pad(secs)}` : `${minutes}:${pad(secs)}`
 }
 
-/** Total runtime in words, for the stat line: `3 小时 12 分` / `12 分`. */
+/** Compact total runtime for stat lines: `7:20` (h:mm) / `0:42` under a minute. */
 export function formatRuntime(seconds: number | null | undefined): string {
   if (!seconds || !Number.isFinite(seconds) || seconds <= 0) return '0'
+  if (seconds < 60) return formatDuration(seconds)
   const totalMinutes = Math.round(seconds / 60)
   const hours = Math.floor(totalMinutes / 60)
   const minutes = totalMinutes % 60

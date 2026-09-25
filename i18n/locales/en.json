@@ -3,6 +3,7 @@
     "title": "Music",
     "nav": {
       "home": "Music home",
+      "homeShort": "Home",
       "tracks": "All tracks",
       "albums": "Albums",
       "artists": "Artists",
@@ -19,6 +20,7 @@
       "randomAlbums": "Shuffle albums",
       "recentAlbums": "New albums",
       "playlists": "Playlists",
+      "viewAll": "View all",
       "lead": "A private music library: upload, browse, play and star. Browsing and public tracks work without signing in."
     },
     "stats": {
